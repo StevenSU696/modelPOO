@@ -47,3 +47,13 @@ class User
         return $this->email;
     }
 }
+
+$user = new User();
+$user->setId('1');
+$user->setNom('SU');
+$user->setPrenom('Steven');
+$user->setEmail('stisti@ggmail.org');
+echo $user->getId() . "\n";
+echo $user->getNom() . "\n";
+echo $user->getPrenom() . "\n";
+echo $user->getEmail() . "\n";
