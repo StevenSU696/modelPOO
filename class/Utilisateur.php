@@ -1,6 +1,6 @@
 <?php
 
-class utilisateur
+class Utilisateur
 {
     public int $id;
     public string $nom;
@@ -16,19 +16,14 @@ class utilisateur
         return $this->id;
     }
 
-    public function getLastname()
+    public function getNom()
     {
         return $this->nom;
     }
 
-    public function getFirstname()
+    public function getPrenom()
     {
         return $this->prenom;
-    }
-
-    public function getName()
-    {
-        return $this->prenom + $this->nom;
     }
 
     public function getEmail()
@@ -36,8 +31,13 @@ class utilisateur
         return $this->email;
     }
 
-    public function checkPassword($password): bool
+    public function hydrate(array $donnees)
     {
-        return password_verify($password, $this->mot_de_passe);
+        foreach ($donnees as $key => $value) {
+            $setter = 'set' . ucfirst($key);
+            if (method_exists($this, $setter)) {
+                $this->$setter($value);
+            }
+        }
     }
 }
