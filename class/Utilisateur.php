@@ -31,6 +31,37 @@ class Utilisateur
         return $this->email;
     }
 
+    public function setId($id)
+    {
+        $this->id = $id;
+    }
+
+    public function setNom($nom)
+    {
+        $this->nom = $nom;
+    }
+    public function setPrenom($prenom)
+    {
+        $this->prenom = $prenom;
+    }
+    public function setEmail($email)
+    {
+        $this->email = $email;
+    }
+    public function setPassword($password)
+    {
+        $this->mot_de_passe = $password;
+    }
+    public function setSurnom($surnom)
+    {
+        $this->surnom = $surnom;
+    }
+
+    public function setDateDeNaissance($dateDeNaissance)
+    {
+        $this->dateDeNaissance = $dateDeNaissance;
+    }
+
     public function hydrate(array $donnees)
     {
         foreach ($donnees as $key => $value) {
